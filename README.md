@@ -1,1 +1,1 @@
-# A Basic Student Management Project
+# A Basic Student Management Project using Qt
