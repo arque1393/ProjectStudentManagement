@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>HomeForm</class>
+ <widget class="QWidget" name="HomeForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1275</width>
+    <height>662</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="font">
+        <font>
+         <family>NotoSerifTamilSlanted Medium</family>
+         <pointsize>22</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel{
+		color:white;
+		background-color:rgb(53, 134, 255);
+		border-radius: 20px;
+        text-align: center;
+		padding: 0 40px;
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string>System to manage Instritute</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="login_signup_layout">
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="signup">
+       <property name="styleSheet">
+        <string notr="true">
+QPushButton{
+		height:40px;
+		width:100px;
+	
+		font: 500 14pt &quot;Noto Sans Gujarati UI Medium&quot;;
+        background-color: #7b38d8;
+        border-radius: 20px;
+        border: 4px double #cccccc;
+        color: #eeeeee;
+        text-align: center;
+        font-size: 28px;
+        padding: 5px 10px;  
+        margin: 5px;
+
+}
+QPushButton:hover{
+		 background-color: #9843e2;
+}
+QPushButton:pressed{
+		 background-color: #b853f2;
+}</string>
+       </property>
+       <property name="text">
+        <string>SignUp</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="login">
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+		height:40px;
+		width:100px;
+	
+		font: 500 14pt &quot;Noto Sans Gujarati UI Medium&quot;;
+        background-color: #7b38d8;
+        border-radius: 20px;
+        border: 4px double #cccccc;
+        color: #eeeeee;
+        text-align: center;
+        font-size: 28px;
+        padding: 5px 10px;  
+        margin: 5px;
+
+}
+QPushButton:hover{
+		 background-color: #9843e2;
+}
+QPushButton:pressed{
+		 background-color: #b853f2;
+}</string>
+       </property>
+       <property name="text">
+        <string>Login</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
