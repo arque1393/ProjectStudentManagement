@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>LoginForm</class>
- <widget class="QWidget" name="LoginForm">
+ <class>SignupForm</class>
+ <widget class="QWidget" name="SignupForm">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>625</width>
-    <height>510</height>
+    <width>865</width>
+    <height>591</height>
    </rect>
-  </property>
-  <property name="font">
-   <font>
-    <family>Open Sans SemiBold</family>
-    <pointsize>22</pointsize>
-    <bold>true</bold>
-   </font>
   </property>
   <property name="windowTitle">
    <string>Form</string>
@@ -62,7 +55,7 @@ QLineEdit{
 </string>
        </property>
        <property name="text">
-        <string>Login</string>
+        <string>SignUp</string>
        </property>
       </widget>
      </item>
@@ -129,9 +122,28 @@ QLineEdit{
         </layout>
        </item>
        <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_10">
+         <item>
+          <widget class="QLabel" name="email_label">
+           <property name="font">
+            <font>
+             <pointsize>-1</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Email Id</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="email_field"/>
+         </item>
+        </layout>
+       </item>
+       <item>
         <layout class="QHBoxLayout" name="horizontalLayout_4">
          <item>
-          <widget class="QLabel" name="password_label">
+          <widget class="QLabel" name="password1_label">
            <property name="font">
             <font>
              <pointsize>-1</pointsize>
@@ -143,12 +155,31 @@ QLineEdit{
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="password_field"/>
+          <widget class="QLineEdit" name="passwors1_field"/>
          </item>
         </layout>
        </item>
        <item>
-        <widget class="QPushButton" name="login_btn">
+        <layout class="QHBoxLayout" name="horizontalLayout_8">
+         <item>
+          <widget class="QLabel" name="password2_label">
+           <property name="font">
+            <font>
+             <pointsize>-1</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Confirm Password</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="password2_field"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QPushButton" name="signup_btn">
          <property name="minimumSize">
           <size>
            <width>288</width>
@@ -156,7 +187,7 @@ QLineEdit{
           </size>
          </property>
          <property name="text">
-          <string>Login</string>
+          <string>Signup</string>
          </property>
         </widget>
        </item>
