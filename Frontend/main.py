@@ -13,6 +13,7 @@ def main():
     home_ui.setupUi(win)
     win.show()
     home_ui.login.clicked.connect(win.openLoginWin)
+    home_ui.signup.clicked.connect(win.openSignupWin)
     sys.exit(app.exec())
 
 
