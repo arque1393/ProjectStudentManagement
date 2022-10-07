@@ -1,19 +1,22 @@
 import sys
 
-from home.ui_home import Ui_HomeForm
+
 from PySide6 import QtWidgets
 from home.home import HomeWindow
 
-home_ui = Ui_HomeForm()
+
+class MainApp:
+    def __init__(self) -> None:
+        self.home = HomeWindow(self)
+        self.profile = QtWidgets.QWidget()
 
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
-    win = HomeWindow()
-    home_ui.setupUi(win)
-    win.show()
-    home_ui.login.clicked.connect(win.openLoginWin)
-    home_ui.signup.clicked.connect(win.openSignupWin)
+
+    win = MainApp()
+    win.home.show()
+
     sys.exit(app.exec())
 
 

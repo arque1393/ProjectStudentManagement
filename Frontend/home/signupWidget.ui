@@ -64,7 +64,7 @@ QLineEdit{
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
-          <widget class="QLabel" name="label_4">
+          <widget class="QLabel" name="designation_label">
            <property name="font">
             <font>
              <pointsize>-1</pointsize>
@@ -76,7 +76,7 @@ QLineEdit{
           </widget>
          </item>
          <item>
-          <widget class="QComboBox" name="comboBox">
+          <widget class="QComboBox" name="designation_field">
            <property name="minimumSize">
             <size>
              <width>140</width>
@@ -105,7 +105,7 @@ QLineEdit{
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_3">
          <item>
-          <widget class="QLabel" name="label_2">
+          <widget class="QLabel" name="username_label">
            <property name="font">
             <font>
              <pointsize>-1</pointsize>
@@ -117,14 +117,14 @@ QLineEdit{
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="lineEdit"/>
+          <widget class="QLineEdit" name="username_field"/>
          </item>
         </layout>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_10">
          <item>
-          <widget class="QLabel" name="label_7">
+          <widget class="QLabel" name="email_label">
            <property name="font">
             <font>
              <pointsize>-1</pointsize>
@@ -136,14 +136,14 @@ QLineEdit{
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="lineEdit_5"/>
+          <widget class="QLineEdit" name="email_field"/>
          </item>
         </layout>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_4">
          <item>
-          <widget class="QLabel" name="label_3">
+          <widget class="QLabel" name="password1_label">
            <property name="font">
             <font>
              <pointsize>-1</pointsize>
@@ -155,14 +155,14 @@ QLineEdit{
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="lineEdit_2"/>
+          <widget class="QLineEdit" name="passwors1_field"/>
          </item>
         </layout>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_8">
          <item>
-          <widget class="QLabel" name="label_5">
+          <widget class="QLabel" name="password2_label">
            <property name="font">
             <font>
              <pointsize>-1</pointsize>
@@ -174,12 +174,12 @@ QLineEdit{
           </widget>
          </item>
          <item>
-          <widget class="QLineEdit" name="lineEdit_3"/>
+          <widget class="QLineEdit" name="password2_field"/>
          </item>
         </layout>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_3">
+        <widget class="QPushButton" name="signup_btn">
          <property name="minimumSize">
           <size>
            <width>288</width>
@@ -194,7 +194,7 @@ QLineEdit{
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
-          <widget class="QPushButton" name="pushButton_2">
+          <widget class="QPushButton" name="close_btn">
            <property name="minimumSize">
             <size>
              <width>140</width>
@@ -207,7 +207,7 @@ QLineEdit{
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButton">
+          <widget class="QPushButton" name="reset_btn">
            <property name="minimumSize">
             <size>
              <width>140</width>

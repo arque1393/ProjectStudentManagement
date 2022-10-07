@@ -60,108 +60,108 @@ class Ui_SignupForm(object):
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.label_4 = QLabel(SignupForm)
-        self.label_4.setObjectName(u"label_4")
+        self.designation_label = QLabel(SignupForm)
+        self.designation_label.setObjectName(u"designation_label")
         font = QFont()
-        self.label_4.setFont(font)
+        self.designation_label.setFont(font)
 
-        self.horizontalLayout.addWidget(self.label_4)
+        self.horizontalLayout.addWidget(self.designation_label)
 
-        self.comboBox = QComboBox(SignupForm)
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.setObjectName(u"comboBox")
-        self.comboBox.setMinimumSize(QSize(140, 0))
+        self.designation_field = QComboBox(SignupForm)
+        self.designation_field.addItem("")
+        self.designation_field.addItem("")
+        self.designation_field.addItem("")
+        self.designation_field.setObjectName(u"designation_field")
+        self.designation_field.setMinimumSize(QSize(140, 0))
 
-        self.horizontalLayout.addWidget(self.comboBox)
+        self.horizontalLayout.addWidget(self.designation_field)
 
 
         self.verticalLayout_2.addLayout(self.horizontalLayout)
 
         self.horizontalLayout_3 = QHBoxLayout()
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.label_2 = QLabel(SignupForm)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setFont(font)
+        self.username_label = QLabel(SignupForm)
+        self.username_label.setObjectName(u"username_label")
+        self.username_label.setFont(font)
 
-        self.horizontalLayout_3.addWidget(self.label_2)
+        self.horizontalLayout_3.addWidget(self.username_label)
 
-        self.lineEdit = QLineEdit(SignupForm)
-        self.lineEdit.setObjectName(u"lineEdit")
+        self.username_field = QLineEdit(SignupForm)
+        self.username_field.setObjectName(u"username_field")
 
-        self.horizontalLayout_3.addWidget(self.lineEdit)
+        self.horizontalLayout_3.addWidget(self.username_field)
 
 
         self.verticalLayout_2.addLayout(self.horizontalLayout_3)
 
         self.horizontalLayout_10 = QHBoxLayout()
         self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
-        self.label_7 = QLabel(SignupForm)
-        self.label_7.setObjectName(u"label_7")
-        self.label_7.setFont(font)
+        self.email_label = QLabel(SignupForm)
+        self.email_label.setObjectName(u"email_label")
+        self.email_label.setFont(font)
 
-        self.horizontalLayout_10.addWidget(self.label_7)
+        self.horizontalLayout_10.addWidget(self.email_label)
 
-        self.lineEdit_5 = QLineEdit(SignupForm)
-        self.lineEdit_5.setObjectName(u"lineEdit_5")
+        self.email_field = QLineEdit(SignupForm)
+        self.email_field.setObjectName(u"email_field")
 
-        self.horizontalLayout_10.addWidget(self.lineEdit_5)
+        self.horizontalLayout_10.addWidget(self.email_field)
 
 
         self.verticalLayout_2.addLayout(self.horizontalLayout_10)
 
         self.horizontalLayout_4 = QHBoxLayout()
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
-        self.label_3 = QLabel(SignupForm)
-        self.label_3.setObjectName(u"label_3")
-        self.label_3.setFont(font)
+        self.password1_label = QLabel(SignupForm)
+        self.password1_label.setObjectName(u"password1_label")
+        self.password1_label.setFont(font)
 
-        self.horizontalLayout_4.addWidget(self.label_3)
+        self.horizontalLayout_4.addWidget(self.password1_label)
 
-        self.lineEdit_2 = QLineEdit(SignupForm)
-        self.lineEdit_2.setObjectName(u"lineEdit_2")
+        self.passwors1_field = QLineEdit(SignupForm)
+        self.passwors1_field.setObjectName(u"passwors1_field")
 
-        self.horizontalLayout_4.addWidget(self.lineEdit_2)
+        self.horizontalLayout_4.addWidget(self.passwors1_field)
 
 
         self.verticalLayout_2.addLayout(self.horizontalLayout_4)
 
         self.horizontalLayout_8 = QHBoxLayout()
         self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
-        self.label_5 = QLabel(SignupForm)
-        self.label_5.setObjectName(u"label_5")
-        self.label_5.setFont(font)
+        self.password2_label = QLabel(SignupForm)
+        self.password2_label.setObjectName(u"password2_label")
+        self.password2_label.setFont(font)
 
-        self.horizontalLayout_8.addWidget(self.label_5)
+        self.horizontalLayout_8.addWidget(self.password2_label)
 
-        self.lineEdit_3 = QLineEdit(SignupForm)
-        self.lineEdit_3.setObjectName(u"lineEdit_3")
+        self.password2_field = QLineEdit(SignupForm)
+        self.password2_field.setObjectName(u"password2_field")
 
-        self.horizontalLayout_8.addWidget(self.lineEdit_3)
+        self.horizontalLayout_8.addWidget(self.password2_field)
 
 
         self.verticalLayout_2.addLayout(self.horizontalLayout_8)
 
-        self.pushButton_3 = QPushButton(SignupForm)
-        self.pushButton_3.setObjectName(u"pushButton_3")
-        self.pushButton_3.setMinimumSize(QSize(288, 0))
+        self.signup_btn = QPushButton(SignupForm)
+        self.signup_btn.setObjectName(u"signup_btn")
+        self.signup_btn.setMinimumSize(QSize(288, 0))
 
-        self.verticalLayout_2.addWidget(self.pushButton_3)
+        self.verticalLayout_2.addWidget(self.signup_btn)
 
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.pushButton_2 = QPushButton(SignupForm)
-        self.pushButton_2.setObjectName(u"pushButton_2")
-        self.pushButton_2.setMinimumSize(QSize(140, 0))
+        self.close_btn = QPushButton(SignupForm)
+        self.close_btn.setObjectName(u"close_btn")
+        self.close_btn.setMinimumSize(QSize(140, 0))
 
-        self.horizontalLayout_2.addWidget(self.pushButton_2)
+        self.horizontalLayout_2.addWidget(self.close_btn)
 
-        self.pushButton = QPushButton(SignupForm)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setMinimumSize(QSize(140, 0))
+        self.reset_btn = QPushButton(SignupForm)
+        self.reset_btn.setObjectName(u"reset_btn")
+        self.reset_btn.setMinimumSize(QSize(140, 0))
 
-        self.horizontalLayout_2.addWidget(self.pushButton)
+        self.horizontalLayout_2.addWidget(self.reset_btn)
 
 
         self.verticalLayout_2.addLayout(self.horizontalLayout_2)
@@ -189,17 +189,17 @@ class Ui_SignupForm(object):
     def retranslateUi(self, SignupForm):
         SignupForm.setWindowTitle(QCoreApplication.translate("SignupForm", u"Form", None))
         self.label.setText(QCoreApplication.translate("SignupForm", u"SignUp", None))
-        self.label_4.setText(QCoreApplication.translate("SignupForm", u"Login As", None))
-        self.comboBox.setItemText(0, QCoreApplication.translate("SignupForm", u"Student", None))
-        self.comboBox.setItemText(1, QCoreApplication.translate("SignupForm", u"Faculty", None))
-        self.comboBox.setItemText(2, QCoreApplication.translate("SignupForm", u"admin", None))
+        self.designation_label.setText(QCoreApplication.translate("SignupForm", u"Login As", None))
+        self.designation_field.setItemText(0, QCoreApplication.translate("SignupForm", u"Student", None))
+        self.designation_field.setItemText(1, QCoreApplication.translate("SignupForm", u"Faculty", None))
+        self.designation_field.setItemText(2, QCoreApplication.translate("SignupForm", u"admin", None))
 
-        self.label_2.setText(QCoreApplication.translate("SignupForm", u"Username", None))
-        self.label_7.setText(QCoreApplication.translate("SignupForm", u"Email Id", None))
-        self.label_3.setText(QCoreApplication.translate("SignupForm", u"Password ", None))
-        self.label_5.setText(QCoreApplication.translate("SignupForm", u"Confirm Password", None))
-        self.pushButton_3.setText(QCoreApplication.translate("SignupForm", u"Signup", None))
-        self.pushButton_2.setText(QCoreApplication.translate("SignupForm", u"Close", None))
-        self.pushButton.setText(QCoreApplication.translate("SignupForm", u"Reset Form", None))
+        self.username_label.setText(QCoreApplication.translate("SignupForm", u"Username", None))
+        self.email_label.setText(QCoreApplication.translate("SignupForm", u"Email Id", None))
+        self.password1_label.setText(QCoreApplication.translate("SignupForm", u"Password ", None))
+        self.password2_label.setText(QCoreApplication.translate("SignupForm", u"Confirm Password", None))
+        self.signup_btn.setText(QCoreApplication.translate("SignupForm", u"Signup", None))
+        self.close_btn.setText(QCoreApplication.translate("SignupForm", u"Close", None))
+        self.reset_btn.setText(QCoreApplication.translate("SignupForm", u"Reset Form", None))
     # retranslateUi
 

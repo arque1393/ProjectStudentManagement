@@ -65,76 +65,76 @@ class Ui_LoginForm(object):
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.label_4 = QLabel(LoginForm)
-        self.label_4.setObjectName(u"label_4")
+        self.designation_label = QLabel(LoginForm)
+        self.designation_label.setObjectName(u"designation_label")
         font1 = QFont()
-        self.label_4.setFont(font1)
+        self.designation_label.setFont(font1)
 
-        self.horizontalLayout.addWidget(self.label_4)
+        self.horizontalLayout.addWidget(self.designation_label)
 
-        self.comboBox = QComboBox(LoginForm)
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.setObjectName(u"comboBox")
-        self.comboBox.setMinimumSize(QSize(140, 0))
+        self.designation_field = QComboBox(LoginForm)
+        self.designation_field.addItem("")
+        self.designation_field.addItem("")
+        self.designation_field.addItem("")
+        self.designation_field.setObjectName(u"designation_field")
+        self.designation_field.setMinimumSize(QSize(140, 0))
 
-        self.horizontalLayout.addWidget(self.comboBox)
+        self.horizontalLayout.addWidget(self.designation_field)
 
 
         self.verticalLayout_2.addLayout(self.horizontalLayout)
 
         self.horizontalLayout_3 = QHBoxLayout()
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.label_2 = QLabel(LoginForm)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setFont(font1)
+        self.username_label = QLabel(LoginForm)
+        self.username_label.setObjectName(u"username_label")
+        self.username_label.setFont(font1)
 
-        self.horizontalLayout_3.addWidget(self.label_2)
+        self.horizontalLayout_3.addWidget(self.username_label)
 
-        self.lineEdit = QLineEdit(LoginForm)
-        self.lineEdit.setObjectName(u"lineEdit")
+        self.username_field = QLineEdit(LoginForm)
+        self.username_field.setObjectName(u"username_field")
 
-        self.horizontalLayout_3.addWidget(self.lineEdit)
+        self.horizontalLayout_3.addWidget(self.username_field)
 
 
         self.verticalLayout_2.addLayout(self.horizontalLayout_3)
 
         self.horizontalLayout_4 = QHBoxLayout()
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
-        self.label_3 = QLabel(LoginForm)
-        self.label_3.setObjectName(u"label_3")
-        self.label_3.setFont(font1)
+        self.password_label = QLabel(LoginForm)
+        self.password_label.setObjectName(u"password_label")
+        self.password_label.setFont(font1)
 
-        self.horizontalLayout_4.addWidget(self.label_3)
+        self.horizontalLayout_4.addWidget(self.password_label)
 
-        self.lineEdit_2 = QLineEdit(LoginForm)
-        self.lineEdit_2.setObjectName(u"lineEdit_2")
+        self.password_field = QLineEdit(LoginForm)
+        self.password_field.setObjectName(u"password_field")
 
-        self.horizontalLayout_4.addWidget(self.lineEdit_2)
+        self.horizontalLayout_4.addWidget(self.password_field)
 
 
         self.verticalLayout_2.addLayout(self.horizontalLayout_4)
 
-        self.pushButton_3 = QPushButton(LoginForm)
-        self.pushButton_3.setObjectName(u"pushButton_3")
-        self.pushButton_3.setMinimumSize(QSize(288, 0))
+        self.login_btn = QPushButton(LoginForm)
+        self.login_btn.setObjectName(u"login_btn")
+        self.login_btn.setMinimumSize(QSize(288, 0))
 
-        self.verticalLayout_2.addWidget(self.pushButton_3)
+        self.verticalLayout_2.addWidget(self.login_btn)
 
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.pushButton_2 = QPushButton(LoginForm)
-        self.pushButton_2.setObjectName(u"pushButton_2")
-        self.pushButton_2.setMinimumSize(QSize(140, 0))
+        self.close_btn = QPushButton(LoginForm)
+        self.close_btn.setObjectName(u"close_btn")
+        self.close_btn.setMinimumSize(QSize(140, 0))
 
-        self.horizontalLayout_2.addWidget(self.pushButton_2)
+        self.horizontalLayout_2.addWidget(self.close_btn)
 
-        self.pushButton = QPushButton(LoginForm)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setMinimumSize(QSize(140, 0))
+        self.reset_btn = QPushButton(LoginForm)
+        self.reset_btn.setObjectName(u"reset_btn")
+        self.reset_btn.setMinimumSize(QSize(140, 0))
 
-        self.horizontalLayout_2.addWidget(self.pushButton)
+        self.horizontalLayout_2.addWidget(self.reset_btn)
 
 
         self.verticalLayout_2.addLayout(self.horizontalLayout_2)
@@ -162,15 +162,15 @@ class Ui_LoginForm(object):
     def retranslateUi(self, LoginForm):
         LoginForm.setWindowTitle(QCoreApplication.translate("LoginForm", u"Form", None))
         self.label.setText(QCoreApplication.translate("LoginForm", u"Login", None))
-        self.label_4.setText(QCoreApplication.translate("LoginForm", u"Login As", None))
-        self.comboBox.setItemText(0, QCoreApplication.translate("LoginForm", u"Student", None))
-        self.comboBox.setItemText(1, QCoreApplication.translate("LoginForm", u"Faculty", None))
-        self.comboBox.setItemText(2, QCoreApplication.translate("LoginForm", u"admin", None))
+        self.designation_label.setText(QCoreApplication.translate("LoginForm", u"Login As", None))
+        self.designation_field.setItemText(0, QCoreApplication.translate("LoginForm", u"Student", None))
+        self.designation_field.setItemText(1, QCoreApplication.translate("LoginForm", u"Faculty", None))
+        self.designation_field.setItemText(2, QCoreApplication.translate("LoginForm", u"admin", None))
 
-        self.label_2.setText(QCoreApplication.translate("LoginForm", u"Username", None))
-        self.label_3.setText(QCoreApplication.translate("LoginForm", u"Password ", None))
-        self.pushButton_3.setText(QCoreApplication.translate("LoginForm", u"Login", None))
-        self.pushButton_2.setText(QCoreApplication.translate("LoginForm", u"Close", None))
-        self.pushButton.setText(QCoreApplication.translate("LoginForm", u"Reset Form", None))
+        self.username_label.setText(QCoreApplication.translate("LoginForm", u"Username", None))
+        self.password_label.setText(QCoreApplication.translate("LoginForm", u"Password ", None))
+        self.login_btn.setText(QCoreApplication.translate("LoginForm", u"Login", None))
+        self.close_btn.setText(QCoreApplication.translate("LoginForm", u"Close", None))
+        self.reset_btn.setText(QCoreApplication.translate("LoginForm", u"Reset Form", None))
     # retranslateUi
 
