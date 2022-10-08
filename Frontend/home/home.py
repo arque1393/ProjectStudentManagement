@@ -48,6 +48,8 @@ class HomeWindow(QtWidgets.QWidget):
     def openSignupWin(self):
         if not self.loginWindow.isVisible():
             self.signupWindow.setMaximumSize(400, 500)
+            self.signupWindow.signup_ui.message.setEnabled(False)
+            self.signupWindow.signup_ui.message.setVisible(False)
             self.signupWindow.show()
 
     def closeEvent(self, event):
@@ -60,5 +62,11 @@ class HomeWindow(QtWidgets.QWidget):
         print("Loggin")
 
     def signup(self):
-        self._parent.profile.show()
-        self.close()
+
+        self.signupWindow.signup_ui.message.setVisible(True)
+        self.signupWindow.signup_ui.message.setEnabled(True)
+        print(self.signupWindow.signup_ui.username_field.text())
+        print(self.signupWindow.signup_ui.email_field.text())
+        print(type(self.signupWindow.signup_ui.password2_field.text()))
+        # self._parent.profile.show()
+        # self.close()
