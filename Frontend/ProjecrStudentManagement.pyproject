@@ -1,5 +1,5 @@
 {
-    "files":["runapp.sh","base.py","home/ui_home.ui","home/signupWidget.ui","main.py","home/loginWidget.ui","home/form.ui"]
+    "files":["base.py","home/loginWidget.ui","main.py","home/form.ui","home/signupWidget.ui","home/ui_home.ui","runapp.sh","student/profile.ui"]
 
 
 }
