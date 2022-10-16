@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>LoginForm</class>
  <widget class="QWidget" name="LoginForm">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -12,9 +15,8 @@
   </property>
   <property name="font">
    <font>
-    <family>Open Sans SemiBold</family>
-    <pointsize>22</pointsize>
-    <bold>true</bold>
+    <bold>false</bold>
+    <kerning>false</kerning>
    </font>
   </property>
   <property name="windowTitle">
@@ -22,13 +24,21 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QLabel{
-	font-size:20px;
-
+		font-size:20px;
+}
+QComboBox{
+		font-size:15px;
 }
 QLineEdit{
 		height:30px;
 		background-color:rgb(240, 255, 248);
-        border-radius: 50px;
+      	font-size:18px;
+		border-radius: 10px;
+}
+
+QPushButton{
+		height:26px;
+		font-size:15px;	
 }</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout_5">
@@ -36,6 +46,9 @@ QLineEdit{
     <spacer name="horizontalSpacer">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Maximum</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>
@@ -55,14 +68,16 @@ QLineEdit{
 		font-size:30px;
 		background-color:rgb(53, 134, 255);
 		border-radius: 20px;
-        text-align: center;
-		padding :0 100%;
+	    text-align: center;
 }
 
 </string>
        </property>
        <property name="text">
         <string>Login</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -110,40 +125,48 @@ QLineEdit{
         </layout>
        </item>
        <item>
+        <widget class="QLabel" name="message">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel{
+		font-size:18px;
+
+		margin:0;
+		text-align: center;
+		color:rgb(200, 0, 0);
+		background-color:rgb(255, 180, 180)
+}
+</string>
+         </property>
+         <property name="text">
+          <string>Message</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
         <layout class="QHBoxLayout" name="horizontalLayout_3">
          <item>
-          <widget class="QLabel" name="username_label">
-           <property name="font">
-            <font>
-             <pointsize>-1</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>Username</string>
+          <widget class="QLineEdit" name="username_field">
+           <property name="placeholderText">
+            <string>username or email</string>
            </property>
           </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="username_field"/>
          </item>
         </layout>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_4">
          <item>
-          <widget class="QLabel" name="password_label">
-           <property name="font">
-            <font>
-             <pointsize>-1</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>Password </string>
+          <widget class="QLineEdit" name="password_field">
+           <property name="placeholderText">
+            <string>password</string>
            </property>
           </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="password_field"/>
          </item>
         </layout>
        </item>
@@ -211,6 +234,9 @@ QLineEdit{
     <spacer name="horizontalSpacer_2">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Minimum</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>

@@ -57,10 +57,11 @@ class Ui_SignupForm(object):
 "		background-color:rgb(53, 134, 255);\n"
 "		border-radius: 20px;\n"
 "        text-align: center;\n"
-"		padding :0 100%;\n"
+"\n"
 "}\n"
 "\n"
 "")
+        self.label.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_4.addWidget(self.label)
 
@@ -91,14 +92,14 @@ class Ui_SignupForm(object):
         self.message.setObjectName(u"message")
         self.message.setEnabled(False)
         self.message.setStyleSheet(u"QLabel{\n"
-"		font-size:15px;\n"
-"		padding:0 100%;\n"
+"		font-size:18px;\n"
 "		margin:0;\n"
 "		text-align: center;\n"
 "		color:rgb(200, 0, 0);\n"
 "		background-color:rgb(255, 180, 180)\n"
 "}\n"
 "")
+        self.message.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_2.addWidget(self.message)
 
@@ -113,15 +114,19 @@ class Ui_SignupForm(object):
 
         self.verticalLayout_2.addWidget(self.email_field)
 
-        self.passwors1_field = QLineEdit(SignupForm)
-        self.passwors1_field.setObjectName(u"passwors1_field")
-        self.passwors1_field.setStyleSheet(u"")
+        self.password1_field = QLineEdit(SignupForm)
+        self.password1_field.setObjectName(u"password1_field")
+        self.password1_field.setFont(font)
+        self.password1_field.setStyleSheet(u"")
+        self.password1_field.setEchoMode(QLineEdit.Password)
 
-        self.verticalLayout_2.addWidget(self.passwors1_field)
+        self.verticalLayout_2.addWidget(self.password1_field)
 
         self.password2_field = QLineEdit(SignupForm)
         self.password2_field.setObjectName(u"password2_field")
+        self.password2_field.setFont(font)
         self.password2_field.setAcceptDrops(False)
+        self.password2_field.setEchoMode(QLineEdit.Password)
         self.password2_field.setDragEnabled(True)
 
         self.verticalLayout_2.addWidget(self.password2_field)
@@ -177,10 +182,10 @@ class Ui_SignupForm(object):
         self.designation_field.setItemText(1, QCoreApplication.translate("SignupForm", u"Faculty", None))
         self.designation_field.setItemText(2, QCoreApplication.translate("SignupForm", u"admin", None))
 
-        self.message.setText(QCoreApplication.translate("SignupForm", u"af", None))
+        self.message.setText(QCoreApplication.translate("SignupForm", u"Message", None))
         self.username_field.setPlaceholderText(QCoreApplication.translate("SignupForm", u"Enter Username", None))
         self.email_field.setPlaceholderText(QCoreApplication.translate("SignupForm", u"Enter Email Id", None))
-        self.passwors1_field.setPlaceholderText(QCoreApplication.translate("SignupForm", u"Password", None))
+        self.password1_field.setPlaceholderText(QCoreApplication.translate("SignupForm", u"Password", None))
         self.password2_field.setPlaceholderText(QCoreApplication.translate("SignupForm", u"Retype Password", None))
         self.signup_btn.setText(QCoreApplication.translate("SignupForm", u"Signup", None))
         self.close_btn.setText(QCoreApplication.translate("SignupForm", u"Close", None))

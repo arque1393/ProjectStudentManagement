@@ -57,13 +57,16 @@ QPushButton{
 		background-color:rgb(53, 134, 255);
 		border-radius: 20px;
         text-align: center;
-		padding :0 100%;
+
 }
 
 </string>
        </property>
        <property name="text">
         <string>SignUp</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -117,8 +120,7 @@ QPushButton{
          </property>
          <property name="styleSheet">
           <string notr="true">QLabel{
-		font-size:15px;
-		padding:0 100%;
+		font-size:18px;
 		margin:0;
 		text-align: center;
 		color:rgb(200, 0, 0);
@@ -127,7 +129,10 @@ QPushButton{
 </string>
          </property>
          <property name="text">
-          <string>af</string>
+          <string>Message</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </item>
@@ -149,9 +154,17 @@ QPushButton{
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="passwors1_field">
+        <widget class="QLineEdit" name="password1_field">
+         <property name="font">
+          <font>
+           <pointsize>-1</pointsize>
+          </font>
+         </property>
          <property name="styleSheet">
           <string notr="true"/>
+         </property>
+         <property name="echoMode">
+          <enum>QLineEdit::Password</enum>
          </property>
          <property name="placeholderText">
           <string>Password</string>
@@ -160,8 +173,16 @@ QPushButton{
        </item>
        <item>
         <widget class="QLineEdit" name="password2_field">
+         <property name="font">
+          <font>
+           <pointsize>-1</pointsize>
+          </font>
+         </property>
          <property name="acceptDrops">
           <bool>false</bool>
+         </property>
+         <property name="echoMode">
+          <enum>QLineEdit::Password</enum>
          </property>
          <property name="dragEnabled">
           <bool>true</bool>

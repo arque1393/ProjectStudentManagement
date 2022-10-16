@@ -1,9 +1,22 @@
+import email
 from PySide6 import QtWidgets, QtCore
+# from PySide6 import QtNetwork
+import re
+import requests
 from .loginWidget import Ui_LoginForm
 from .signupWidget import Ui_SignupForm
 from home.ui_home import Ui_HomeForm
 
 import sys
+import time
+
+# Multipart Data
+# data = QtNetwork.QHttpMultiPart()
+# textPart = QtNetwork.QHttpPart()
+# textPart.setHeader(QtNetwork.QNetworkRequest.ContentDispositionHeader,
+#                    "form-data; name=\"text\"")
+# textPart.setBody("my text")
+# data.append(textPart)
 
 
 class LoginWin(QtWidgets.QWidget):
@@ -37,12 +50,19 @@ class HomeWindow(QtWidgets.QWidget):
         self.home_ui.setupUi(self)
         self.home_ui.login.clicked.connect(self.openLoginWin)
         self.home_ui.signup.clicked.connect(self.openSignupWin)
+
+        # self.url = QtCore.QUrl("http://127.0.0.1:8000")
+        # self.request = QtNetwork.QNetworkRequest()
+        # self.request.setUrl(self.url)
+        # self.network_manager = QtNetwork.QNetworkAccessManager()
+        # self.response = None
         # self.signup_ui.setupUi(self.signupWindow)
 
     def openLoginWin(self):
         if not self.signupWindow.isVisible():
             self.loginWindow.setMaximumSize(400, 500)
-
+            self.loginWindow.login_ui.message.setVisible(False)
+            self.loginWindow.login_ui.message.setEnabled(False)
             self.loginWindow.show()
 
     def openSignupWin(self):
@@ -59,14 +79,64 @@ class HomeWindow(QtWidgets.QWidget):
             self.signupWindow.close()
 
     def login(self):
-        print("Loggin")
+        email = None
+        username = self.loginWindow.login_ui.username_field.text()
+        passwd = self.loginWindow.login_ui.password_field.text()
+        if username == '' or passwd == '':
+            self.loginWindow.login_ui.message.setVisible(True)
+            self.loginWindow.login_ui.message.setEnabled(True)
+            self.loginWindow.login_ui.message.setText(
+                "No Field cannot be empty")
+        elif re.fullmatch("[a-z][a-z0-9]*@[a-z0-9]*\.[A-Za-z]*", username):
+            email = username
+            data = {
+                "email": email,
+                "passwd": passwd,
+            }
+        else:
+            data = {
+                "username": username,
+                "passwd": passwd,
+            }
+        response = requests.post(
+            "http://127.0.0.1:8000/api/student/login", json=data)
+        if response:
+            self._parent.profile.show()
+            self.close()
 
     def signup(self):
+        email = self.signupWindow.signup_ui.email_field.text()
+        username = self.signupWindow.signup_ui.username_field.text()
+        passwd1 = self.signupWindow.signup_ui.password1_field.text()
+        passwd2 = self.signupWindow.signup_ui.password2_field.text()
+        if email == '' or username == '' or passwd1 == '' or passwd2 == '':
+            self.signupWindow.signup_ui.message.setVisible(True)
+            self.signupWindow.signup_ui.message.setEnabled(True)
+            self.signupWindow.signup_ui.message.setText(
+                "No Field cannot be empty")
+        elif not re.fullmatch("[a-z][a-z0-9]*@[a-z0-9]*\.[A-Za-z]*", email):
+            self.signupWindow.signup_ui.message.setVisible(True)
+            self.signupWindow.signup_ui.message.setEnabled(True)
+            self.signupWindow.signup_ui.message.setText(
+                "Enter a correct Email")
+        elif passwd1 != passwd2:
+            self.signupWindow.signup_ui.message.setVisible(True)
+            self.signupWindow.signup_ui.message.setEnabled(True)
+            self.signupWindow.signup_ui.message.setText(
+                "Password Mismatch")
+        else:
+            data = {
+                "email": email,
+                "username": username,
+                "passwd1": passwd1,
+                "passwd2": passwd2
 
-        self.signupWindow.signup_ui.message.setVisible(True)
-        self.signupWindow.signup_ui.message.setEnabled(True)
-        print(self.signupWindow.signup_ui.username_field.text())
-        print(self.signupWindow.signup_ui.email_field.text())
-        print(type(self.signupWindow.signup_ui.password2_field.text()))
-        # self._parent.profile.show()
-        # self.close()
+            }
+            response = requests.post(
+                "http://127.0.0.1:8000/api/student/signup", json=data)
+            if response:
+                self._parent.profile.show()
+                self.close()
+
+    def printAll(self):
+        print(self.response.readAll())
