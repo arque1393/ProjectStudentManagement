@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>SignupForm</class>
- <widget class="QWidget" name="SignupForm">
+ <class>LoginForm</class>
+ <widget class="QWidget" name="LoginForm">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>732</width>
-    <height>746</height>
+    <width>625</width>
+    <height>510</height>
    </rect>
+  </property>
+  <property name="font">
+   <font>
+    <bold>false</bold>
+    <kerning>false</kerning>
+   </font>
   </property>
   <property name="windowTitle">
    <string>Form</string>
@@ -38,6 +47,9 @@ QPushButton{
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Maximum</enum>
+     </property>
      <property name="sizeHint" stdset="0">
       <size>
        <width>40</width>
@@ -56,14 +68,16 @@ QPushButton{
 		font-size:30px;
 		background-color:rgb(53, 134, 255);
 		border-radius: 20px;
-        text-align: center;
-		padding :0 100%;
+	    text-align: center;
 }
 
 </string>
        </property>
        <property name="text">
-        <string>SignUp</string>
+        <string>Login</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -117,8 +131,8 @@ QPushButton{
          </property>
          <property name="styleSheet">
           <string notr="true">QLabel{
-		font-size:15px;
-		padding:0 100%;
+		font-size:18px;
+
 		margin:0;
 		text-align: center;
 		color:rgb(200, 0, 0);
@@ -127,52 +141,37 @@ QPushButton{
 </string>
          </property>
          <property name="text">
-          <string>af</string>
+          <string>Message</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="username_field">
-         <property name="dragEnabled">
-          <bool>true</bool>
-         </property>
-         <property name="placeholderText">
-          <string>Enter Username</string>
-         </property>
-        </widget>
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <widget class="QLineEdit" name="username_field">
+           <property name="placeholderText">
+            <string>username or email</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
        <item>
-        <widget class="QLineEdit" name="email_field">
-         <property name="placeholderText">
-          <string>Enter Email Id</string>
-         </property>
-        </widget>
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <item>
+          <widget class="QLineEdit" name="password_field">
+           <property name="placeholderText">
+            <string>password</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
        <item>
-        <widget class="QLineEdit" name="passwors1_field">
-         <property name="styleSheet">
-          <string notr="true"/>
-         </property>
-         <property name="placeholderText">
-          <string>Password</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="password2_field">
-         <property name="acceptDrops">
-          <bool>false</bool>
-         </property>
-         <property name="dragEnabled">
-          <bool>true</bool>
-         </property>
-         <property name="placeholderText">
-          <string>Retype Password</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="signup_btn">
+        <widget class="QPushButton" name="login_btn">
          <property name="minimumSize">
           <size>
            <width>288</width>
@@ -180,7 +179,7 @@ QPushButton{
           </size>
          </property>
          <property name="text">
-          <string>Signup</string>
+          <string>Login</string>
          </property>
         </widget>
        </item>
@@ -235,6 +234,9 @@ QPushButton{
     <spacer name="horizontalSpacer_2">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Minimum</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>

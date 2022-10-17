@@ -23,24 +23,32 @@ class Ui_LoginForm(object):
     def setupUi(self, LoginForm):
         if not LoginForm.objectName():
             LoginForm.setObjectName(u"LoginForm")
+        LoginForm.setEnabled(True)
         LoginForm.resize(625, 510)
         font = QFont()
-        font.setFamilies([u"Open Sans SemiBold"])
-        font.setPointSize(22)
-        font.setBold(True)
+        font.setBold(False)
+        font.setKerning(False)
         LoginForm.setFont(font)
         LoginForm.setStyleSheet(u"QLabel{\n"
-"	font-size:20px;\n"
-"\n"
+"		font-size:20px;\n"
+"}\n"
+"QComboBox{\n"
+"		font-size:15px;\n"
 "}\n"
 "QLineEdit{\n"
 "		height:30px;\n"
 "		background-color:rgb(240, 255, 248);\n"
-"        border-radius: 50px;\n"
+"      	font-size:18px;\n"
+"		border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton{\n"
+"		height:26px;\n"
+"		font-size:15px;	\n"
 "}")
         self.horizontalLayout_5 = QHBoxLayout(LoginForm)
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Maximum, QSizePolicy.Minimum)
 
         self.horizontalLayout_5.addItem(self.horizontalSpacer)
 
@@ -53,11 +61,11 @@ class Ui_LoginForm(object):
 "		font-size:30px;\n"
 "		background-color:rgb(53, 134, 255);\n"
 "		border-radius: 20px;\n"
-"        text-align: center;\n"
-"		padding :0 100%;\n"
+"	    text-align: center;\n"
 "}\n"
 "\n"
 "")
+        self.label.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_4.addWidget(self.label)
 
@@ -84,14 +92,24 @@ class Ui_LoginForm(object):
 
         self.verticalLayout_2.addLayout(self.horizontalLayout)
 
+        self.message = QLabel(LoginForm)
+        self.message.setObjectName(u"message")
+        self.message.setEnabled(False)
+        self.message.setStyleSheet(u"QLabel{\n"
+"		font-size:18px;\n"
+"\n"
+"		margin:0;\n"
+"		text-align: center;\n"
+"		color:rgb(200, 0, 0);\n"
+"		background-color:rgb(255, 180, 180)\n"
+"}\n"
+"")
+        self.message.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_2.addWidget(self.message)
+
         self.horizontalLayout_3 = QHBoxLayout()
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.username_label = QLabel(LoginForm)
-        self.username_label.setObjectName(u"username_label")
-        self.username_label.setFont(font1)
-
-        self.horizontalLayout_3.addWidget(self.username_label)
-
         self.username_field = QLineEdit(LoginForm)
         self.username_field.setObjectName(u"username_field")
 
@@ -102,12 +120,6 @@ class Ui_LoginForm(object):
 
         self.horizontalLayout_4 = QHBoxLayout()
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
-        self.password_label = QLabel(LoginForm)
-        self.password_label.setObjectName(u"password_label")
-        self.password_label.setFont(font1)
-
-        self.horizontalLayout_4.addWidget(self.password_label)
-
         self.password_field = QLineEdit(LoginForm)
         self.password_field.setObjectName(u"password_field")
 
@@ -149,7 +161,7 @@ class Ui_LoginForm(object):
 
         self.horizontalLayout_5.addLayout(self.verticalLayout_4)
 
-        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Minimum, QSizePolicy.Minimum)
 
         self.horizontalLayout_5.addItem(self.horizontalSpacer_2)
 
@@ -167,8 +179,9 @@ class Ui_LoginForm(object):
         self.designation_field.setItemText(1, QCoreApplication.translate("LoginForm", u"Faculty", None))
         self.designation_field.setItemText(2, QCoreApplication.translate("LoginForm", u"admin", None))
 
-        self.username_label.setText(QCoreApplication.translate("LoginForm", u"Username", None))
-        self.password_label.setText(QCoreApplication.translate("LoginForm", u"Password ", None))
+        self.message.setText(QCoreApplication.translate("LoginForm", u"Message", None))
+        self.username_field.setPlaceholderText(QCoreApplication.translate("LoginForm", u"username or email", None))
+        self.password_field.setPlaceholderText(QCoreApplication.translate("LoginForm", u"password", None))
         self.login_btn.setText(QCoreApplication.translate("LoginForm", u"Login", None))
         self.close_btn.setText(QCoreApplication.translate("LoginForm", u"Close", None))
         self.reset_btn.setText(QCoreApplication.translate("LoginForm", u"Reset Form", None))
