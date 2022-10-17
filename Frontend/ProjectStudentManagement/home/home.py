@@ -103,9 +103,12 @@ class HomeWindow(QtWidgets.QWidget):
             }
         response = requests.post(
             "http://127.0.0.1:8000/api/student/login", json=data)
-        data = response.json()
-        if data['success']:
-            self._parent.profile.show()
+        data1 = response.json()
+        if data1['success']:
+            self._parent.is_loggedin = True
+            self._parent.loggedin_user_info = data
+
+            self._parent.profile.start()
             self.close()
         else:
             self.loginWindow.login_ui.message.setVisible(True)

@@ -3,12 +3,15 @@ import sys
 
 from PySide6 import QtWidgets
 from home.home import HomeWindow
+from student.student_profile import StudentProfile
 
 
 class MainApp:
     def __init__(self) -> None:
+        self.is_loggedin = False
+        self.loggedin_user_info = None
         self.home = HomeWindow(self)
-        self.profile = QtWidgets.QWidget()
+        self.profile = StudentProfile(self)
 
 
 def main():

@@ -1,6 +1,7 @@
 
 from django.http import JsonResponse, HttpResponse, HttpRequest
 from types import SimpleNamespace
+from django.contrib.auth import login as login_user
 # Create your views here.
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
@@ -45,6 +46,7 @@ student.signup = signup
 
 @api_view(["POST"])
 def login(req):
+    # if req.data['designation'] == 'student':
     data = {'success': 0}
     if 'email' in req.data.keys():
         user = User.objects.get(email=req.data['email'])
@@ -59,12 +61,53 @@ def login(req):
         data['message'] = 'Wrong Password'
         return Response(data)
     # Now we can login
-    if req.data['designation'] == 'student':
-        data['success'] = 1
-        return Response(data)
+
+    data['success'] = 1
+    return Response(data)
 
 
 student.login = login
+
+
+@api_view(["POST"])
+def profile(req):
+
+    if 'email' in req.data.keys():
+        user = User.objects.get(email=req.data['email'])
+    elif 'username' in req.data.keys():
+        user = User.objects.get(username=req.data['username'])
+    else:
+        return Response({})
+    print(user)
+    password = req.data['passwd']
+    if user.check_password(password):
+        print("FFFFFFFFFFFFFFFFFF")
+        if req.data["update"] == False:
+            data = {
+                'username': user.username,
+                'first_name': user.first_name,
+                'last_name': user.last_name,
+                'roll_no': user.student.roll_no,
+                'department': user.student.department,
+                'contuct_no': user.student.contuct_no,
+
+            }
+            print(data)
+            return Response(data)
+        else:
+            user.first_name = req.data['first_name']
+            user.last_name = req.data['last_name']
+            user.student.roll_no = req.data['roll_no']
+            user.student.department = req.data['department']
+            user.student.contuct_no = req.data['contuct_no']
+            user.student.save()
+            user.save()
+
+            return Response({'message': 'successful'})
+    return Response({'error': True})
+
+
+student.profile = profile
 
 
 @api_view(["GET", "POST"])
