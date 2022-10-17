@@ -80,6 +80,7 @@ class HomeWindow(QtWidgets.QWidget):
 
     def login(self):
         email = None
+        designation = 'student'
         username = self.loginWindow.login_ui.username_field.text()
         passwd = self.loginWindow.login_ui.password_field.text()
         if username == '' or passwd == '':
@@ -90,21 +91,29 @@ class HomeWindow(QtWidgets.QWidget):
         elif re.fullmatch("[a-z][a-z0-9]*@[a-z0-9]*\.[A-Za-z]*", username):
             email = username
             data = {
+                "designation": designation,
                 "email": email,
                 "passwd": passwd,
             }
         else:
             data = {
+                "designation": designation,
                 "username": username,
                 "passwd": passwd,
             }
         response = requests.post(
             "http://127.0.0.1:8000/api/student/login", json=data)
-        if response:
+        data = response.json()
+        if data['success']:
             self._parent.profile.show()
             self.close()
+        else:
+            self.loginWindow.login_ui.message.setVisible(True)
+            self.loginWindow.login_ui.message.setEnabled(True)
+            self.loginWindow.login_ui.message.setText(data["message"])
 
     def signup(self):
+        designation = 'student'
         email = self.signupWindow.signup_ui.email_field.text()
         username = self.signupWindow.signup_ui.username_field.text()
         passwd1 = self.signupWindow.signup_ui.password1_field.text()
@@ -126,17 +135,20 @@ class HomeWindow(QtWidgets.QWidget):
                 "Password Mismatch")
         else:
             data = {
+                "designation": designation,
                 "email": email,
                 "username": username,
-                "passwd1": passwd1,
-                "passwd2": passwd2
+                "passwd": passwd1
+
 
             }
             response = requests.post(
                 "http://127.0.0.1:8000/api/student/signup", json=data)
-            if response:
-                self._parent.profile.show()
-                self.close()
-
-    def printAll(self):
-        print(self.response.readAll())
+            data = response.json()
+            if data['success']:
+                self.signupWindow.close()
+                self.openLoginWin()
+            else:
+                self.signupWindow.signup_ui.message.setVisible(True)
+                self.signupWindow.signup_ui.message.setEnabled(True)
+                self.signupWindow.signup_ui.message.setText(data['message'])
