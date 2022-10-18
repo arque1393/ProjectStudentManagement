@@ -23,7 +23,7 @@ class StudentProfile(QtWidgets.QWidget):
         # self.ui.backToHomeBtn
         self.ui.fileBrowseBtn.clicked.connect(self.fileBrowse)
         self.ui.updateBtn.clicked.connect(self.updataProfile)
-        # self.ui.resetBtn
+        self.ui.resetBtn.clicked.connect(self.resetProfile)
         # self.ui.fileHandlingBtn
         # Text Field
         self.ui.usernameValue.setText(data2['username'])
@@ -61,4 +61,4 @@ class StudentProfile(QtWidgets.QWidget):
     def fileBrowse(self):
         filename = QtWidgets.QFileDialog.getOpenFileName(
             self, 'open file')
-        self.ui.filePathLoaderValue.setText(filename)
+        self.ui.filePathLoaderValue.setText(filename[0])
