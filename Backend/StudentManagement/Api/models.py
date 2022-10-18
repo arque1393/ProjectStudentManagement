@@ -10,6 +10,7 @@ class Student (models.Model):
         choices=(('CSE', 'CSE'), ('ME', 'ME'), ('ECE', 'ECE'), ('EE', 'EE')),
         null=True, max_length=5)
     roll_no = models.PositiveIntegerField(null=True)
+    # contuct_no =
 
 
 class Faculty (models.Model):

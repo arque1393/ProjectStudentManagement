@@ -71,39 +71,41 @@ student.login = login
 
 @api_view(["POST"])
 def profile(req):
-
+    data = dict(req.data)
+    print(data)
     if 'email' in req.data.keys():
         user = User.objects.get(email=req.data['email'])
     elif 'username' in req.data.keys():
         user = User.objects.get(username=req.data['username'])
     else:
-        return Response({})
+        return Response({'error': True})
     print(user)
     password = req.data['passwd']
     if user.check_password(password):
         print("FFFFFFFFFFFFFFFFFF")
-        if req.data["update"] == False:
+        # print(req.data["update"])
+        if data["update"] == False:
             data = {
                 'username': user.username,
                 'first_name': user.first_name,
                 'last_name': user.last_name,
                 'roll_no': user.student.roll_no,
                 'department': user.student.department,
-                'contuct_no': user.student.contuct_no,
+                # 'contuct_no': user.student.contuct_no,
 
             }
             print(data)
             return Response(data)
         else:
-            user.first_name = req.data['first_name']
-            user.last_name = req.data['last_name']
-            user.student.roll_no = req.data['roll_no']
-            user.student.department = req.data['department']
-            user.student.contuct_no = req.data['contuct_no']
+            user.first_name = data['first_name']
+            user.last_name = data['last_name']
+            user.student.roll_no = data['roll_no']
+            user.student.department = data['department']
+            # user.student.contuct_no = req.data['contuct_no']
             user.student.save()
             user.save()
 
-            return Response({'message': 'successful'})
+        return Response({'message': 'successful'})
     return Response({'error': True})
 
 
