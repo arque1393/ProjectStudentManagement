@@ -25,7 +25,7 @@ class Ui_compilerWin(object):
     def setupUi(self, compilerWin):
         if not compilerWin.objectName():
             compilerWin.setObjectName(u"compilerWin")
-        compilerWin.resize(962, 601)
+        compilerWin.resize(1019, 640)
         compilerWin.setStyleSheet(u"QWidget{\n"
 "	background-color:rgb(240,240, 255);\n"
 "	\n"
@@ -155,7 +155,7 @@ class Ui_compilerWin(object):
         compilerWin.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(compilerWin)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 962, 22))
+        self.menubar.setGeometry(QRect(0, 0, 1019, 22))
         self.menuFile = QMenu(self.menubar)
         self.menuFile.setObjectName(u"menuFile")
         self.menuEdit = QMenu(self.menubar)
@@ -188,7 +188,7 @@ class Ui_compilerWin(object):
 
         self.retranslateUi(compilerWin)
 
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(compilerWin)
