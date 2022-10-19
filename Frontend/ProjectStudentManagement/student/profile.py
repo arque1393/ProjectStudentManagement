@@ -292,6 +292,11 @@ class Ui_studentProfile(object):
 
         self.verticalLayout_5.addWidget(self.fileHandlingBtn)
 
+        self.compilerBtn = QPushButton(studentProfile)
+        self.compilerBtn.setObjectName(u"compilerBtn")
+
+        self.verticalLayout_5.addWidget(self.compilerBtn)
+
         self.verticalSpacer_6 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.MinimumExpanding)
 
         self.verticalLayout_5.addItem(self.verticalSpacer_6)
@@ -342,6 +347,7 @@ class Ui_studentProfile(object):
         self.filePathLoaderValue.setText(QCoreApplication.translate("studentProfile", u"I am Greate", None))
         self.fileBrowseBtn.setText(QCoreApplication.translate("studentProfile", u"Browse", None))
         self.fileHandlingBtn.setText(QCoreApplication.translate("studentProfile", u"File Handling", None))
+        self.compilerBtn.setText(QCoreApplication.translate("studentProfile", u"Compiler", None))
         self.bottomBarLabel.setText(QCoreApplication.translate("studentProfile", u"Bottom Bar", None))
     # retranslateUi
 
