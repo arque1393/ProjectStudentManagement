@@ -235,6 +235,16 @@ class Ui_compilerWin(object):
 
         self.verticalLayout_2.addWidget(self.executeBtn)
 
+        self.label_3 = QLabel(self.centralwidget)
+        self.label_3.setObjectName(u"label_3")
+
+        self.verticalLayout_2.addWidget(self.label_3)
+
+        self.errorLogBtn = QPushButton(self.centralwidget)
+        self.errorLogBtn.setObjectName(u"errorLogBtn")
+
+        self.verticalLayout_2.addWidget(self.errorLogBtn)
+
         self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
         self.verticalLayout_2.addItem(self.verticalSpacer)
@@ -335,6 +345,8 @@ class Ui_compilerWin(object):
 
         self.compileBtn.setText(QCoreApplication.translate("compilerWin", u"Compile", None))
         self.executeBtn.setText(QCoreApplication.translate("compilerWin", u"Execute", None))
+        self.label_3.setText(QCoreApplication.translate("compilerWin", u"Debug", None))
+        self.errorLogBtn.setText(QCoreApplication.translate("compilerWin", u"Error Log", None))
         self.menuFile.setTitle(QCoreApplication.translate("compilerWin", u"File", None))
         self.menuEdit.setTitle(QCoreApplication.translate("compilerWin", u"Edit", None))
         self.menuRun.setTitle(QCoreApplication.translate("compilerWin", u"Run", None))

@@ -1,5 +1,5 @@
 {
-    "files":["home/ui_home.ui","home/loginWidget.ui","student/compilerWin.ui","main.py","home/form.ui","home/signupWidget.ui","base.py","student/profile.ui","compiler/compilerWin.ui","runapp.sh","compiler/editorField.ui"]
+    "files":["compiler/editorField.ui","home/form.ui","home/signupWidget.ui","main.py","home/ui_home.ui","runapp.sh","student/profile.ui","student/compilerWin.ui","compiler/compilerWin.ui","base.py","home/loginWidget.ui","compiler/dialog.ui"]
 
 
 }
