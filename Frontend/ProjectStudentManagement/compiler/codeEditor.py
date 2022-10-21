@@ -118,7 +118,7 @@ class CodeEditor(QMainWindow):
 
         content = self.ui.tabWidget.currentWidget().toPlainText()
         print(content)
-        if self.openedFileSaveList[currentIndex]:
+        if not self.openedFileSaveList[currentIndex]:
             filePath = self.openedFileList[currentIndex]
             print(filePath)
             if bool(filePath):
@@ -147,69 +147,81 @@ class CodeEditor(QMainWindow):
                              'C': 'c', 'C++': 'cpp', 'Java': 'java'}
         currentFileIndex = self.ui.tabWidget.currentIndex()
         lang = self.ui.selectBtn.currentText()
-        if self.openedFileSaveList[currentFileIndex]:
-            path = self.openedFileList[currentFileIndex]
-            name, extension = os.path.splitext(path)
-            extension = extension[1:]
-            if extension == lang_to_extension[lang]:
-                if extension == 'py':
-                    m = QMessageBox.information(
-                        self, 'Compiletion Stoped', f"Python does not required any compilation. ")
-                elif extension == 'java':
-                    # os.system(f"javac {path}")
-                    error = subprocess.run(['javac', path],
-                                           stderr=subprocess.PIPE).stdout.decode('utf-8')
-                    if error:
-                        # print("Open Dialog Box to Show error")
-                        self.errorLogWin.ui.label.setText(error)
-                elif extension == 'c':
-                    # os.system(f" {path} -o {name}.out ")
-                    error = subprocess.run(['gcc', path, '-o', name+'.out'],
-                                           stderr=subprocess.PIPE).stdout.decode('utf-8')
-                    if error:
-                        # print("Open Dialog Box to Show error")
-                        self.errorLogWin.ui.label.setText(error)
-                elif extension == 'cpp':
-                    # os.system(f"g++ {path} -o {name}.out ")
-                    error = subprocess.run(['g++', path, '-o', name+'.out'],
-                                           stderr=subprocess.PIPE).stdout.decode('utf-8')
-                    if error:
-                        # print("Open Dialog Box to Show error")
-                        self.errorLogWin.ui.label.setText(error)
+        try:
+            if self.openedFileSaveList[currentFileIndex]:
+                path = self.openedFileList[currentFileIndex]
+                name, extension = os.path.splitext(path)
+                extension = extension[1:]
+                if extension == lang_to_extension[lang]:
+                    if extension == 'py':
+                        m = QMessageBox.information(
+                            self, 'Compiletion Stoped', f"Python does not required any compilation. ")
+                    elif extension == 'java':
+                        # os.system(f"javac {path}")
+                        error = subprocess.run(['javac', path],
+                                               stderr=subprocess.PIPE).stderr
+                        if error:
+                            # print("Open Dialog Box to Show error")
+                            self.errorLogWin.ui.label.setText(
+                                str(error.decode('utf-8')))
+                    elif extension == 'c':
+                        # os.system(f" {path} -o {name}.out ")
+                        error = subprocess.run(['gcc', path, '-o', name+'.out'],
+                                               stderr=subprocess.PIPE).stderr
+                        if error:
+                            # print("Open Dialog Box to Show error")
+                            self.errorLogWin.ui.label.setText(
+                                str(error.decode('utf-8')))
+                    elif extension == 'cpp':
+                        # os.system(f"g++ {path} -o {name}.out ")
+                        error = subprocess.run(['g++', path, '-o', name+'.out'],
+                                               stderr=subprocess.PIPE).stderr
+                        if error:
+                            # print("Open Dialog Box to Show error")
+                            self.errorLogWin.ui.label.setText(
+                                str(error.decode('utf-8')))
+                else:
+                    QMessageBox.information(
+                        self, 'Compiletion Stoped', f"selected Language is {lang}.\nplease check the file extension")
             else:
                 QMessageBox.information(
-                    self, 'Compiletion Stoped', f"selected Language is {lang}.\nplease check the file extension")
-        else:
-            QMessageBox.information(
-                self, 'Compiletion Stoped', f"Please Save the file before Compile.")
+                    self, 'Compiletion Stoped', f"Please Save the file before Compile.")
+        except:
+            pass
 
     def executeFile(self):
         lang_to_extension = {'Python': 'py',
                              'C': 'c', 'C++': 'cpp', 'Java': 'java'}
         currentFileIndex = self.ui.tabWidget.currentIndex()
         lang = self.ui.selectBtn.currentText()
+        try:
+            if self.openedFileSaveList[currentFileIndex]:
+                path = self.openedFileList[currentFileIndex]
+                name, extension = os.path.splitext(path)
+                dir_name = os.path.dirname(path)
+                name = os.path.basename(name)
+                extension = extension[1:]
+                if extension == lang_to_extension[lang]:
+                    if extension == 'py':
+                        subprocess.call(
+                            ['xterm', '-e', f'python {path};read z'])
+                        # subprocess.call(['xterm', '-e', f'python {path};read z'])
+                    elif extension == 'java':
+                        subprocess.call(
+                            ['xterm', '-e', f'cd {dir_name};java {name};read z'])
+                        # subprocess.call(['xterm', '-e', f'java {name};read z'])
+                    elif extension == 'c' or extension == 'cpp':
+                        subprocess.call(['xterm', '-e', f"{name}.out; read z"])
+                        # subprocess.call(['xterm', '-e', f"{name}.out; read z"])
 
-        if self.openedFileSaveList[currentFileIndex]:
-            path = self.openedFileList[currentFileIndex]
-            name, extension = os.path.splitext(path)
-            extension = extension[1:]
-            if extension == lang_to_extension[lang]:
-                if extension == 'py':
-                    subprocess.call(['xterm', '-e', f'python {path};read z'])
-                    # subprocess.call(['xterm', '-e', f'python {path};read z'])
-                elif extension == 'java':
-                    subprocess.call(['xterm', '-e', f'java {name};read z'])
-                    # subprocess.call(['xterm', '-e', f'java {name};read z'])
-                elif extension == 'c' or extension == 'cpp':
-                    subprocess.call(['xterm', '-e', f"{name}.out; read z"])
-                    # subprocess.call(['xterm', '-e', f"{name}.out; read z"])
-
+                else:
+                    QMessageBox.information(
+                        self, 'Compiletion Stoped', f"selected Language is {lang}.\nplease check the file extension")
             else:
                 QMessageBox.information(
-                    self, 'Compiletion Stoped', f"selected Language is {lang}.\nplease check the file extension")
-        else:
-            QMessageBox.information(
-                self, 'Compiletion Stoped', f"Please Save the file before Compile.")
+                    self, 'Compiletion Stoped', f"Please Save the file before Compile.")
+        except:
+            pass
 
 
 def main():
