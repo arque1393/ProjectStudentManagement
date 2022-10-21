@@ -1,18 +1,17 @@
-from distutils.errors import CompileError
 from PySide6.QtWidgets import QWidget, QApplication, QMainWindow, QPlainTextEdit, QFileDialog, QDialog, QMessageBox
 from compilerWin import Ui_compilerWin
 from dialog import Ui_Dialog
 from PySide6.QtCore import Slot
-
+from platform import system 
 import sys
 import os
 import subprocess
 
 # ToDo
-# Error Message Extraction
-# Save Indigator Implimentation
-# Not Save Message Generation ( Dialogue Box)
-# Modify For Windows
+# Error Message Extraction                              Done
+# Save Indigator Implimentation                         Done
+# Not Save Message Generation ( Dialogue Box)           Done
+# Modify For Windows                                    
 # Font Control
 # System Font Control
 # Line Number Field Implementation
@@ -92,10 +91,11 @@ class CodeEditor(QMainWindow):
             widget, f"untitled{self.ui.tabWidget.count()-len(self.openedFileList)}")
         self.openedFileList.append(None)
         self.openedFileSaveList.append(False)
-
+    # For only testing 
+    # test_dir = os.
     def openFile(self):
         filePath = QFileDialog.getOpenFileName(
-            self, 'open file')[0]
+            self, 'open file',)[0]
 
         if filePath != '':
             filename = os.path.basename(filePath)
@@ -118,8 +118,8 @@ class CodeEditor(QMainWindow):
 
         content = self.ui.tabWidget.currentWidget().toPlainText()
         print(content)
+        filePath = self.openedFileList[currentIndex]
         if not self.openedFileSaveList[currentIndex]:
-            filePath = self.openedFileList[currentIndex]
             print(filePath)
             if bool(filePath):
                 f = open(filePath, "w")
@@ -129,6 +129,7 @@ class CodeEditor(QMainWindow):
             else:
                 filePath = QFileDialog.getSaveFileName(
                     self, "Save F:xile", "/home/jana/untitled.png", "Text files (*.*)")[0]
+                print(filePath)
                 f = open(filePath, 'w')
                 f.write(content)
                 f.close()
@@ -138,6 +139,13 @@ class CodeEditor(QMainWindow):
                 self.openedFileList[currentIndex] = filePath
                 self.openedFileSaveList[currentIndex] = True
                 print(currentIndex, "From Save")
+        # For Now else 
+        else :
+            if bool(filePath):
+                f = open(filePath, "w")
+                f.write(content)
+                print(currentIndex)
+                f.close()
 
     def is_not_save(self):
         return True
@@ -199,24 +207,38 @@ class CodeEditor(QMainWindow):
                 path = self.openedFileList[currentFileIndex]
                 name, extension = os.path.splitext(path)
                 dir_name = os.path.dirname(path)
-                name = os.path.basename(name)
+                name = os.path.basename(name)                
                 extension = extension[1:]
-                if extension == lang_to_extension[lang]:
-                    if extension == 'py':
-                        subprocess.call(
-                            ['xterm', '-e', f'python {path};read z'])
-                        # subprocess.call(['xterm', '-e', f'python {path};read z'])
-                    elif extension == 'java':
-                        subprocess.call(
-                            ['xterm', '-e', f'cd {dir_name};java {name};read z'])
-                        # subprocess.call(['xterm', '-e', f'java {name};read z'])
-                    elif extension == 'c' or extension == 'cpp':
-                        subprocess.call(['xterm', '-e', f"{name}.out; read z"])
-                        # subprocess.call(['xterm', '-e', f"{name}.out; read z"])
+                if system() == 'Windows':
+                    if extension == lang_to_extension[lang]:
+                        if extension == 'py':
+                            subprocess.call(f'start /wait python {path}; read x', shell=True)
+                        elif extension == 'java':
+                            subprocess.call(f'start /wait javac {path}; read x', shell=True)
+                        elif extension == 'c' or extension == 'cpp':
+                            subprocess.call(f'start /wait  {path}; read x', shell=True)
 
-                else:
-                    QMessageBox.information(
-                        self, 'Compiletion Stoped', f"selected Language is {lang}.\nplease check the file extension")
+                    else:
+                        QMessageBox.information(
+                            self, 'Compiletion Stoped', f"selected Language is {lang}.\nplease check the file extension")
+                else :
+                    if extension == lang_to_extension[lang]:
+                        if extension == 'py':
+
+                            subprocess.call(
+                                ['xterm', '-e', f'python {path};read z'])
+                            # subprocess.call(['xterm', '-e', f'python {path};read z'])
+                        elif extension == 'java':
+                            subprocess.call(
+                                ['xterm', '-e', f'cd {dir_name};java {name};read z'])
+                            # subprocess.call(['xterm', '-e', f'java {name};read z'])
+                        elif extension == 'c' or extension == 'cpp':
+                            subprocess.call(['xterm', '-e', f"{name}.out; read z"])
+                            # subprocess.call(['xterm', '-e', f"{name}.out; read z"])
+
+                    else:
+                        QMessageBox.information(
+                            self, 'Compiletion Stoped', f"selected Language is {lang}.\nplease check the file extension")
             else:
                 QMessageBox.information(
                     self, 'Compiletion Stoped', f"Please Save the file before Compile.")
