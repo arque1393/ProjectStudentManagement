@@ -91,11 +91,14 @@ class CodeEditor(QMainWindow):
             widget, f"untitled{self.ui.tabWidget.count()-len(self.openedFileList)}")
         self.openedFileList.append(None)
         self.openedFileSaveList.append(False)
+
     # For only testing 
     # test_dir = os.
     def openFile(self):
+        basedir =os.path.dirname(os.path.dirname (os.path.dirname(os.getcwd())))
+        os.path.join(basedir , 'testdir')
         filePath = QFileDialog.getOpenFileName(
-            self, 'open file',)[0]
+            self, 'open file',os.path.join(basedir , 'testdir'))[0]
 
         if filePath != '':
             filename = os.path.basename(filePath)
@@ -212,11 +215,14 @@ class CodeEditor(QMainWindow):
                 if system() == 'Windows':
                     if extension == lang_to_extension[lang]:
                         if extension == 'py':
-                            subprocess.call(f'start /wait python {path}; read x', shell=True)
+                            os.system(f'start powershell -Command "python {path};cat"')
+                            # subprocess.call(f'start /wait python {path}; read x', shell=True)
                         elif extension == 'java':
-                            subprocess.call(f'start /wait javac {path}; read x', shell=True)
+                            # subprocess.call(f'start /wait javac {path}; read x', shell=True)
+                            os.system(f'start powershell -Command "cd {dir_name};java {name};cat"')
                         elif extension == 'c' or extension == 'cpp':
-                            subprocess.call(f'start /wait  {path}; read x', shell=True)
+                            # subprocess.call(f'start /wait  {path}; read x', shell=True)
+                            os.system(f'start powershell -Command "{path};cat"')
 
                     else:
                         QMessageBox.information(
