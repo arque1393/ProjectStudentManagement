@@ -1,8 +1,8 @@
 from PySide6.QtWidgets import QWidget, QApplication, QMainWindow, QPlainTextEdit, QFileDialog, QDialog, QMessageBox
-from compilerWin import Ui_compilerWin
-from dialog import Ui_Dialog
+from .compilerWin import Ui_compilerWin
+from .dialog import Ui_Dialog
 from PySide6.QtCore import Slot
-from platform import system 
+from platform import system
 import sys
 import os
 import subprocess
@@ -11,7 +11,7 @@ import subprocess
 # Error Message Extraction                              Done
 # Save Indigator Implimentation                         Done
 # Not Save Message Generation ( Dialogue Box)           Done
-# Modify For Windows                                    
+# Modify For Windows
 # Font Control
 # System Font Control
 # Line Number Field Implementation
@@ -23,7 +23,8 @@ class ErrorLog(QDialog):
         super().__init__()
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
-        self.ui.buttonBox.setStandardButtons(self.ui.buttonBox.StandardButton.Ok)
+        self.ui.buttonBox.setStandardButtons(
+            self.ui.buttonBox.StandardButton.Ok)
 
     # def closeWin(self):
     #     self.close()
@@ -42,9 +43,10 @@ class EditorField(QPlainTextEdit):
 
 
 class CodeEditor(QMainWindow):
-    def __init__(self):
+    def __init__(self, parent=None):
         super().__init__()
         # self.ui = MyUI()
+        self._parent = parent
         self.errorLogWin = ErrorLog()
         self.ui = Ui_compilerWin()
         self.ui.setupUi(self)
@@ -92,13 +94,14 @@ class CodeEditor(QMainWindow):
         self.openedFileList.append(None)
         self.openedFileSaveList.append(False)
 
-    # For only testing 
+    # For only testing
     # test_dir = os.
     def openFile(self):
-        basedir =os.path.dirname(os.path.dirname (os.path.dirname(os.getcwd())))
-        os.path.join(basedir , 'testdir')
+        basedir = os.path.dirname(
+            os.path.dirname(os.path.dirname(os.getcwd())))
+        os.path.join(basedir, 'testdir')
         filePath = QFileDialog.getOpenFileName(
-            self, 'open file',os.path.join(basedir , 'testdir'))[0]
+            self, 'open file', os.path.join(basedir, 'testdir'))[0]
 
         if filePath != '':
             filename = os.path.basename(filePath)
@@ -142,8 +145,8 @@ class CodeEditor(QMainWindow):
                 self.openedFileList[currentIndex] = filePath
                 self.openedFileSaveList[currentIndex] = True
                 print(currentIndex, "From Save")
-        # For Now else 
-        else :
+        # For Now else
+        else:
             if bool(filePath):
                 f = open(filePath, "w")
                 f.write(content)
@@ -179,10 +182,10 @@ class CodeEditor(QMainWindow):
                         # os.system(f" {path} -o {name}.out ")
                         if (system() == 'Windows'):
                             error = subprocess.run(['gcc', path, '-o', name+'.exe'],
-                                                stderr=subprocess.PIPE).stderr
+                                                   stderr=subprocess.PIPE).stderr
                         else:
                             error = subprocess.run(['gcc', path, '-o', name+'.out'],
-                                                stderr=subprocess.PIPE).stderr
+                                                   stderr=subprocess.PIPE).stderr
                         if error:
                             # print("Open Dialog Box to Show error")
                             self.errorLogWin.ui.label.setText(
@@ -214,24 +217,27 @@ class CodeEditor(QMainWindow):
                 path = self.openedFileList[currentFileIndex]
                 name, extension = os.path.splitext(path)
                 dir_name = os.path.dirname(path)
-                absolute_name = os.path.basename(name)                
+                absolute_name = os.path.basename(name)
                 extension = extension[1:]
                 if system() == 'Windows':
                     if extension == lang_to_extension[lang]:
                         if extension == 'py':
-                            os.system(f'start powershell -Command "python {path};cat"')
+                            os.system(
+                                f'start powershell -Command "python {path};cat"')
                             # subprocess.call(f'start /wait python {path}; read x', shell=True)
                         elif extension == 'java':
                             # subprocess.call(f'start /wait javac {path}; read x', shell=True)
-                            os.system(f'start powershell -Command "cd {dir_name};java {absolute_name};cat"')
+                            os.system(
+                                f'start powershell -Command "cd {dir_name};java {absolute_name};cat"')
                         elif extension == 'c' or extension == 'cpp':
                             # subprocess.call(f'start /wait  {path}; read x', shell=True)
-                            os.system(f'start powershell -Command "{name}.exe;cat"')
+                            os.system(
+                                f'start powershell -Command "{name}.exe;cat"')
 
                     else:
                         QMessageBox.information(
                             self, 'Compiletion Stoped', f"selected Language is {lang}.\nplease check the file extension")
-                else :
+                else:
                     if extension == lang_to_extension[lang]:
                         if extension == 'py':
 
@@ -243,7 +249,8 @@ class CodeEditor(QMainWindow):
                                 ['xterm', '-e', f'cd {dir_name};java {name};read z'])
                             # subprocess.call(['xterm', '-e', f'java {name};read z'])
                         elif extension == 'c' or extension == 'cpp':
-                            subprocess.call(['xterm', '-e', f"{name}.out; read z"])
+                            subprocess.call(
+                                ['xterm', '-e', f"{name}.out; read z"])
                             # subprocess.call(['xterm', '-e', f"{name}.out; read z"])
 
                     else:

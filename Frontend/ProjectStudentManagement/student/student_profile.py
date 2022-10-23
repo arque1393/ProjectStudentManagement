@@ -2,6 +2,7 @@
 from PySide6 import QtCore, QtWidgets
 import requests
 from .profile import Ui_studentProfile
+
 endpoint = "http://127.0.0.1:8000/api/student/profile"
 
 
@@ -24,6 +25,8 @@ class StudentProfile(QtWidgets.QWidget):
         self.ui.fileBrowseBtn.clicked.connect(self.fileBrowse)
         self.ui.updateBtn.clicked.connect(self.updataProfile)
         self.ui.resetBtn.clicked.connect(self.resetProfile)
+        self.ui.compilerBtn.clicked.connect(self._parent.codeEditorWin.show)
+
         # self.ui.fileHandlingBtn
         # Text Field
         self.ui.usernameValue.setText(data2['username'])

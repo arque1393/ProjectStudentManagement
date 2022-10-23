@@ -4,6 +4,7 @@ import sys
 from PySide6 import QtWidgets
 from home.home import HomeWindow
 from student.student_profile import StudentProfile
+from compiler.codeEditor import CodeEditor
 
 
 class MainApp:
@@ -12,6 +13,7 @@ class MainApp:
         self.loggedin_user_info = None
         self.home = HomeWindow(self)
         self.profile = StudentProfile(self)
+        self.codeEditorWin = CodeEditor(self)
 
 
 def main():
